@@ -1,5 +1,7 @@
+"""
+Below are several examples of some bad code. Identify what is wrong and how to fix it.
+"""
 
-# General Python
 
 def example0(status):
     if status in ['in production', 'in_production', 'In Production', 'In_Production', 'IN PRODUCTION', 'IN_PRODUCTION', 'In production', 'In_production']:
@@ -45,7 +47,7 @@ def example1(task):
 
 
 def example2(titles, order_code):
-    # titles is a dictionary, order code is a string
+    # titles is a dictionary, order_code is a string
     try:
         t = titles[order_code]
     except:
@@ -87,7 +89,12 @@ def make_version_string(version):
     return version
 
 
-# Server Optimization
+"""
+Server Optimization
+Since server calls are relatively expensive, they should be as optimized as possible.
+Identify the problem with each example and what can be done to optimize it.
+"""
+
 
 def func0(this_user):
     # get all the non-retired tasks
