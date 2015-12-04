@@ -90,6 +90,20 @@ def example5(version):
     return version
 
 
+def example6(delivs):
+    linked = []
+    for d in delivs:
+        linked_delivs.append(d.get_value('satisfied'))
+    satisfied = 0
+    unsatisfied = 0
+    for link in linked:
+        if link == True:
+            satisfied = satisfied + 1
+        else:
+            unsatisfied = unsatisfied + 1
+    return [satisfied, satisfied + unsatisfied]
+
+
 """
 Server Optimization
 Since server calls are relatively expensive, they should be as optimized as possible.
