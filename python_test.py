@@ -1,5 +1,6 @@
 """
-Below are several examples of some bad code. Identify what is wrong and how to fix it.
+Below are several examples of some bad code. Identify what is wrong with each one
+and what you would do to fix it.
 """
 
 
@@ -68,7 +69,7 @@ def example3(objects):
                     do_it = False
 
 
-def make_8_digits(number):
+def example4(number):
     number_str = str(number)
     number_str_len = len(number_str)
     if number_str_len < 8:
@@ -78,7 +79,7 @@ def make_8_digits(number):
     return number_str
 
 
-def make_version_string(version):
+def example5(version):
     version = int(version)
     if version > 9:
         version = 'v0%s' % version
@@ -96,7 +97,7 @@ Identify the problem with each example and what can be done to optimize it.
 """
 
 
-def func0(this_user):
+def function0(this_user):
     # get all the non-retired tasks
     tasks = server.query('sthpw/task', filters=[('state', '!=', 'RETIRED')])
     # iterate through them, task is a dictionary
@@ -107,7 +108,7 @@ def func0(this_user):
             add_to_some_list(task)
 
 
-def func1(order_ids):
+def function1(order_ids):
     for order_id in order_ids:
         # query for this order object
         order_object = server.query('twog/order', filters=[('id', '=', order_id)])[0]
@@ -115,7 +116,7 @@ def func1(order_ids):
         print order_object.get('name')
 
 
-def func2(tasks):
+def function2(tasks):
     # tasks is a list of dictionaries
     for task in tasks:
         # update the object in the database
