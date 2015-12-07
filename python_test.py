@@ -101,7 +101,7 @@ def example6(delivs):
             satisfied = satisfied + 1
         else:
             unsatisfied = unsatisfied + 1
-    return [satisfied, satisfied + unsatisfied]
+    return '(%s/%s)' % (satisfied, satisfied + unsatisfied)
 
 
 """
