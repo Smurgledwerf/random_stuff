@@ -104,6 +104,31 @@ def example6(delivs):
     return '(%s/%s)' % (satisfied, satisfied + unsatisfied)
 
 
+def example7(barcodes, server):
+    for bc in barcodes:
+        if 'EMP' in bc:
+            that_user = server.eval("@SOBJECT(sthpw/login['barcode','%s'])" % bc)
+            if that_user:
+                that_user = that_user[0]
+            else:
+                that_user = {'login': 'UNKNOWN USER'}
+    for bc in barcodes:
+        if 'LOC' in bc:
+            that_location = server.eval("@SOBJECT(twog/inhouse_locations['barcode','%s'])" % bc)
+            if that_location:
+                that_location = that_location[0]
+            else:
+                that_location = {'name': 'UNKNOWN LOCATION'}
+    for bc in barcodes:
+        if 'LOC' not in bc and 'EMP' not in bc:
+            that_src = server.eval("@SOBJECT(twog/source['barcode','%s'])" % bc)
+            if that_src:
+                that_src = that_src[0]
+            else:
+                that_src = {'title': 'UNKNOWN SOURCE', 'episode': '', 'season': '', 'part': ''}
+    return [that_user, that_location, that_src]
+
+
 """
 Server Optimization
 Since server calls are relatively expensive, they should be as optimized as possible.
